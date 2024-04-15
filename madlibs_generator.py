@@ -1,11 +1,15 @@
+#opening the story file
 with open("story.txt","r") as f:
     story = f.read()
+
 
 words = set()
 start_of_word = -1
 
 target_start = "<"
 target_end = ">"
+
+#finding the blank words with enumerate function
 for i,char in enumerate(story):
 
     if char == target_start:
@@ -16,7 +20,9 @@ for i,char in enumerate(story):
         words.add(word)
         start_of_word = -1
 
+#getting input for the missing story from the user
 answers ={}
+
 for word in words:
     answer =input("Enter a word for "+word+": ")
     answers[word] = answer
